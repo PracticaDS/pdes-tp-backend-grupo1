@@ -7,4 +7,10 @@ router.get('/usuarios', async (req, res) => {
   return res.send(users)
 })
 
+router.get('/usuarios/:userId/fabricas', async (req, res) => {
+    const users = await req.context.models.User.findById(req.params.userId)
+    return res.send(users['factories'])
+})
+
+
 export default router
