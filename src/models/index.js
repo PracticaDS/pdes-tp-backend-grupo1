@@ -9,8 +9,10 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema)
 
+const models = { User }
+
 const connectDb = () => {
   return mongoose.connect('mongodb://localhost:27017/factory')
 }
 
-export { connectDb, User }
+export { connectDb, User, models }
