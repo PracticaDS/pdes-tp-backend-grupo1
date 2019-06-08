@@ -36,6 +36,19 @@ router.post('/usuarios/:userName', async (req, res) => {
   return res.send(user)
 })
 
+router.post('/usuarios/:userName/fabricas', async (req, res) => {
+  const user = await req.context.models.User.findOne({username: req.params.userName})
+  const factory = req.body
+  user.factories.push({
+    name: factory.name,
+    state: {}
+  })
+  
+  await req.context.models.User.updateOne({username: req.params.userName}, user)
+  return res.send(user)
+})
+
+
 
 
 
