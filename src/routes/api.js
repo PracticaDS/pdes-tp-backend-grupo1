@@ -27,6 +27,15 @@ router.get('/usuarios/:userName/fabricas', async (req, res) => {
     }
 })
 
+router.get('/usuarios/:userName/fabricas/:fabricaName', async (req, res) => {
+  const users = await req.context.models.User.findOne({username: req.params.userName})
+  if (!users) {
+    return res.status(404).send('Not found');
+  }
+  
+  return res.send(users.factories.filter(factory => factory.name == req.params.fabricaName)[0])
+})
+
 router.post('/usuarios/:userName', async (req, res) => {
   const user = {
     username: req.params.userName,
