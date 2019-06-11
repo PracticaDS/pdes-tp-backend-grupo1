@@ -55,7 +55,7 @@ app.get('/prometheus', (req, res) => {
 
 // Runs after each requests
 app.use((req, res, next) => {
-  const responseTimeInMs = Date.now() - res.locals.startEpoch
+  // const responseTimeInMs = Date.now() - res.locals.startEpoch
 
   // httpRequestDurationMicroseconds
   //   .labels(req.method, req.route.path, res.statusCode)
