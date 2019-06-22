@@ -11,9 +11,9 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema)
 
 const models = { User }
-
+const mongo = process.env.MONGO_URL || 'mongodb://localhost:27017/factory';
 const connectDb = () => {
-  return mongoose.connect('mongodb://localhost:27017/factory')
+  return mongoose.connect(mongo)
 }
 
 export { connectDb, User, models }
