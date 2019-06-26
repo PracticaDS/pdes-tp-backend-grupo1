@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start-prod": "babel-node index.js",
     "start": "nodemon --exec babel-node -- index",
     "test": "jest --runInBand --watch",
     "test:ci": "jest --runInBand --ci --forceExit",
